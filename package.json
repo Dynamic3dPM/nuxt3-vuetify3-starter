@@ -22,6 +22,7 @@
     "vuetify": "^3.7.1"
   },
   "dependencies": {
+    "hash-sum": "^2.0.0",
     "vite-plugin-vuetify": "^2.0.4"
   }
 }

@@ -1,13 +1,17 @@
-$family: "Inter var", "Inter", apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+// Define custom font family variable
+$font-family: "Inter var", "Inter", apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
   Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
+// Import Vuetify's SCSS and override the body font family
 @use "vuetify" with (
-  $body-font-family: $family
+  $body-font-family: $font-family
 );
 
+// Set global font-family fallback
 :root {
   font-family: "Inter", sans-serif;
 }
+
 @supports (font-variation-settings: normal) {
   :root {
     font-family: "Inter var", sans-serif;
@@ -20,7 +24,7 @@ a {
   text-decoration: none;
 }
 
-// Override the textfield's radius
+// Override the text field's border-radius
 .v-text-field {
   .v-field__outline__start {
     border-radius: 10px 0 0 10px !important;
@@ -30,9 +34,12 @@ a {
   }
 }
 
+// Customize button font-weight
 .v-btn {
   font-weight: 700 !important;
 }
+
+// Label styles
 .label {
   font-weight: 600;
   font-size: 15px;
@@ -40,69 +47,89 @@ a {
   display: inline-block;
   cursor: pointer;
 }
-// Theme gradients
+
+// Gradient theme colors
 .gradient {
   &.primary {
     color: white;
     background: linear-gradient(
       318deg,
-      rgba(67, 56, 202, 1) 12%,
-      rgba(79, 70, 229, 1) 38%,
-      rgba(99, 102, 241, 1) 100%
+      rgba(26, 95, 168, 1) 12%,   // Blue
+      rgba(111, 184, 68, 1) 38%,  // Green
+      rgba(187, 207, 229, 1) 100% // Light Blue
     ) !important;
   }
   &.cancel {
-    // color: #1e293b;
     background: linear-gradient(
       318deg,
-      rgba(203, 213, 225, 1) 12%,
-      rgba(226, 232, 240, 1) 38%,
-      rgba(241, 245, 249, 1) 100%
+      rgba(174, 209, 54, 1) 12%,  // Light Green
+      rgba(186, 187, 54, 1) 38%,  // Olive
+      rgba(219, 225, 32, 1) 100%  // Yellow
     ) !important;
   }
   &.success {
     color: white;
     background: linear-gradient(
       318deg,
-      rgba(21, 128, 61, 1) 12%,
-      rgba(22, 163, 74, 1) 38%,
-      rgba(34, 197, 94, 1) 100%
+      rgba(79, 164, 69, 1) 12%,   // Dark Green
+      rgba(111, 184, 68, 1) 38%,  // Green
+      rgba(54, 137, 99, 1) 100%   // Teal
     ) !important;
   }
   &.info {
     color: white;
     background: linear-gradient(
       318deg,
-      rgba(30, 64, 175, 1) 12%,
-      rgba(37, 99, 235, 1) 38%,
-      rgba(59, 130, 246, 1) 100%
+      rgba(26, 95, 168, 1) 12%,   // Blue
+      rgba(54, 137, 99, 1) 38%,   // Teal
+      rgba(111, 184, 68, 1) 100%  // Green
     ) !important;
   }
   &.warn {
     color: white;
     background: linear-gradient(
       318deg,
-      rgba(180, 83, 9, 1) 12%,
-      rgba(217, 119, 6, 1) 38%,
-      rgba(245, 158, 11, 1) 100%
+      rgba(186, 187, 54, 1) 12%,  // Olive
+      rgba(219, 225, 32, 1) 38%,  // Yellow
+      rgba(174, 209, 54, 1) 100%  // Light Green
     ) !important;
   }
   &.error {
     color: white;
     background: linear-gradient(
       318deg,
-      rgba(153, 27, 27, 1) 12%,
-      rgba(220, 38, 38, 1) 38%,
-      rgba(248, 113, 113, 1) 100%
+      rgba(111, 184, 68, 1) 12%,  // Green
+      rgba(79, 164, 69, 1) 38%,   // Dark Green
+      rgba(26, 95, 168, 1) 100%   // Blue
     ) !important;
   }
   &.gray {
     color: white;
     background: linear-gradient(
       318deg,
-      rgba(30, 41, 59, 1) 12%,
-      rgba(44, 55, 74, 1) 38%,
-      rgba(71, 85, 105, 1) 100%
+      rgba(187, 207, 229, 1) 12%, // Light Blue
+      rgba(174, 209, 54, 1) 38%,  // Light Green
+      rgba(54, 137, 99, 1) 100%   // Teal
     ) !important;
   }
+}
+
+// Custom styles for the background
+.v-bg {
+  pointer-events: none;
+  filter: blur(56px);
+}
+
+.v-bg > div {
+  background: linear-gradient(
+    to bottom right,
+    rgba(26, 95, 168, 1),   // Blue
+    rgba(111, 184, 68, 1)   // Green
+  );
+  z-index: -40;
+  clip-path: polygon(
+    10% 10%, 20% 10%, 70% 80%, 60% 80%, 30% 5%, 40% 10%, 50% 30%,
+    60% 50%, 50% 5%, 55% 15%, 45% 15%, 50% 5%, 30% 80%, 40% 85%,
+    35% 95%, 25% 90%
+  );
 }
